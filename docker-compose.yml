@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: adatheque_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: adatheque
+      POSTGRES_PASSWORD: adatheque
+      POSTGRES_DB: adatheque
+    ports:
+      - "5433:5432"
+    volumes:
+      - adatheque_data:/var/lib/postgresql/data
+
+volumes:
+  adatheque_data:
